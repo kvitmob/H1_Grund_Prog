@@ -8,6 +8,7 @@ Tilvalg();
 
 Console.WriteLine("Teen er klar");
 
+
 //klargøring subrutine
 static void Klargøring()
 {
@@ -58,7 +59,6 @@ static void Brygning()
     int valg = 0;
     int minutter = 0;
 
-    // Vi bruger tekst i stedet for int, så programmet ikke crasher hvis man skriver bogstaver
     while (valg != 1 && valg != 2 && valg != 3)
     {
         Console.WriteLine("Vælg te styrke:");
