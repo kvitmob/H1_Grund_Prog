@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-
 // HovedAlgoritme
 Klargøring();
 Brygning();
@@ -72,11 +69,11 @@ static void Brygning()
         {
             minutter = 2;
         }
-        else if (valg == "2")
+        else if (valg == 2)
         {
             minutter = 3;
         }
-        else if (valg == "3")
+        else if (valg == 3)
         {
             minutter = 5;
         }
