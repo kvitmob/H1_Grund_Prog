@@ -1,9 +1,16 @@
 // HovedAlgoritme
-Klargøring();
-Brygning();
-Tilvalg();
 
-Console.WriteLine("Teen er klar");
+BrygTe();
+
+static void BrygTe()
+{
+    Klargøring();
+    Brygning();
+    Tilvalg();
+
+    Console.WriteLine("Teen er klar");
+}
+
 
 
 //klargøring subrutine
