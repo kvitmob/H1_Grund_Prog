@@ -1,5 +1,3 @@
-using System.Globalization;
-
 brygkaffe();
 
 static void brygkaffe()
@@ -53,7 +51,7 @@ static void Klargøring()
         Console.WriteLine("Er stik sat i stikkontakten? ja/nej?");
         stik = Console.ReadLine().ToLower();
 
-        if (stik!= "ja" && stick != "nej")
+        if (stik!= "ja" && stik != "nej")
         {
         Console.WriteLine("Du SKAL indtaste ja eller nej");     
         }
@@ -66,25 +64,67 @@ static void Klargøring()
     }
 }
 
-static void Tilvalg()
+static (int kop, int styrkeValg) Tilvalg()
 {
     int kop = 0;
 
-    while (kop <= 0)
+    while (kop < 1 || kop >10)
     {
-        Console.WriteLine("Hvor mange kop skal du have?");
+        Console.WriteLine("Hvor mange kop skal du have? (1-10)");
         string svar = (Console.ReadLine() ?? "").Trim();
 
-        if (int.TryParse(svar, out int parsed) && parsed > 0)
+        if (int.TryParse(svar, out int parsed) && parsed >= 1 && parsed <=10) 
         {
             kop = parsed;
         }
 
         else
         {
-            
+            Console.WriteLine("Du skal indtaste tallet mellem 1-10");
         } 
-        
     }
 
+     int StyrkeValg = 0;
+
+    while (StyrkeValg < 1 || StyrkeValg > 3)
+    {
+        Console.WriteLine("Valg kaffe styrke? (1-3)");
+        string StyrkeSvar = (Console.ReadLine() ?? "").Trim();
+
+        if (int.TryParse(StyrkeSvar, out int parsed) && parsed >= 1 && parsed <=3) 
+        {
+            StyrkeValg = parsed;
+        }
+
+        else
+        {
+            Console.WriteLine("Du skal indtaste tallet mellem 1-4");
+        } 
+    }
+
+}                       
+
+static void Brygning(int kop, int styrkeVlag)
+{
+    int Vand = kop * 200;
+    int Styrke = StyrkeValg * kop;
+    Console.WriteLine($"Hæld {Vand} ml vand i vandbeholderen \n Læg {Styrke}gr kaffe i filter \n Tryk på start knappen på kaffemaskine");
+
+    Console.WriteLine("Er brygningen færdig?");
+    string result = (Console.ReadLine() ?? "").Trim().ToLower();
+    while (result != ja && result != nej)
+    {
+        if (result == "ja")
+        {
+            Console.WriteLine("Kaffen er klar");
+        }
+        while (result == "nej")
+        {
+            Console.WriteLine("Vent lidt");
+            Thread.Sleep(1000);
+            Console.WriteLine("Er brygningen færdig?");
+
+        }
+
+    }
 }
